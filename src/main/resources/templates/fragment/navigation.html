@@ -1,0 +1,22 @@
+<div th:fragment="navigation_bar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <ul class="navbar-nav navbar-nav-left">
+                <li class="nav-item">
+                    <a class="" href="/"><img class="logo" th:src="@{/logo/sanilogo.png}" alt="logo" /></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav navbar-nav-center">
+                <li class="nav-item "><a class="nav-link" th:href="@{/}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/shop/category}">Shop</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/about}">About Us</a></li>
+            </ul>
+            <ul class="navbar-nav navbar-nav-right">
+                <li class="nav-item"><a class="nav-link" th:href="@{/customer/account}"><i class="bi nav_bi bi-person-circle text-black"></i></a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/customer/wishlist}"><i class="bi nav_bi bi-star-fill text-black"></i></a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/customer/cart}"><i class="bi nav_bi bi-cart-fill text-black"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
