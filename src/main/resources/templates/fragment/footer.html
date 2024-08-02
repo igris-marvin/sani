@@ -11,16 +11,24 @@
             <div class="col-md-4">
               <h5>Contact Us</h5>
               <ul class="list-unstyled">
-                <li><a href="mailto:info@yourcompany.com" class="text-white">Email: info@yourcompany.com</a></li>
-                <li><a href="tel:+1234567890" class="text-white">Phone: +123 456 7890</a></li>
-                <li><a href="#" class="text-white">Address: 123 Your Street, Your City</a></li>
+                
+                <div th:each="sc : ${socials}">
+                  <li th:if="${sc.social} == 'GOOGLE'"><a th:href="${sc.url}" class="text-white text-decoration-none">Email: <span th:text="${sc.handle}">SOCIAL_HANDLE</span></a></li>
+                  <li th:if="${sc.social} == 'WHATSAPP'"><a href="tel:0658158002" class="text-white text-decoration-none">Phone: <span th:text="${sc.handle}">PHONE_NUMBERS</span></a></li>
+                </div>
+                <li><a href="https://maps.app.goo.gl/9NJ2oN4EVik7x1dx6" target="_blank" class="text-white text-decoration-none">Address: 138 Justice Mohammed, Brooklyn , Pretoria, South Africa, 0002</a></li>
+
               </ul>
             </div>
             <div class="col-md-4">
               <h5>Follow Us</h5>
-              <a href="https://www.facebook.com/profile.php?id=100063728581507" target="_blank" class="text-white me-2"><i class="bi bi-facebook fs-4"></i></a>
-              <a href="https://api.whatsapp.com/send?phone=%2B27658158002&context=ARAAF7lSCEVUQZspMb4Nw-rzug4T0Kb8vdIezWAjZw-9A1KZtOCgKJ-HwzkJX8VZr5lLdWN4xSchAbNXtGwTvMhCHthSl62d9vg0H-w2A9gk5a736PCk1UpsQeITg5Q-o-RML7pedjrJTI0z5bKTNMJ_Xg&source=FB_Page&app=facebook&entry_point=page_cta" class="text-white me-2 alert"><i class="bi bi-whatsapp fs-4"></i></a>
-              <a href="https://www.instagram.com/sanienterprise?igsh=NTc4MTIwNjQ2YQ==" target="_blank" class="text-white me-2"><i class="bi bi-instagram  fs-4"></i></a>
+
+              <div th:each="sc : ${socials}">
+                <a th:if="${sc.social} == 'FACEBOOK'" th:href="${sc.url}" target="_blank" class="text-white me-2 text-decoration-none"><i class="bi bi-facebook fs-4"></i> <span th:text="${sc.handle}">SOCIAL_HANDLE</span></a>
+                <a th:if="${sc.social} == 'WHATSAPP'" th:href="${sc.url}" target="_blank" class="text-white me-2 text-decoration-none"><i class="bi bi-whatsapp fs-4"></i> <span th:text="${sc.handle}">SOCIAL_HANDLE</span></a>
+                <a th:if="${sc.social} == 'INSTAGRAM'" th:href="${sc.url}" target="_blank" class="text-white me-2 text-decoration-none"><i class="bi bi-instagram  fs-4"></i> <span th:text="${sc.handle}">SOCIAL_HANDLE</span></a>
+              </div>
+              
             </div>
           </div>
           <div class="text-center py-3">

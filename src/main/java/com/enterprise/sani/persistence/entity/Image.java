@@ -2,6 +2,7 @@ package com.enterprise.sani.persistence.entity;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,7 +28,7 @@ public class Image {
     private String imageTitle;
     private Double imageSize;
 
-    @Lob
+    @Column(columnDefinition = "LONGBLOB")
     private byte[] imageSource;
 
     @Temporal(value = TemporalType.TIMESTAMP)

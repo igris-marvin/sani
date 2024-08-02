@@ -13,6 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Temporal;
@@ -39,7 +40,7 @@ public class Furniture {
     private FurnitureStatus status;
 
     @JoinColumn(name = "category")
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
 
     @JoinColumn(name = "displayImage")
@@ -51,7 +52,7 @@ public class Furniture {
     private List<Image> extraImages;
     
     @JoinColumn(name = "discount")
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Discount discount;
 
     @Temporal(value = TemporalType.TIMESTAMP)

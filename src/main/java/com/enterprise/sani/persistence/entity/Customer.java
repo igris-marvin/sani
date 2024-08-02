@@ -43,8 +43,8 @@ public class Customer {
 
     @Temporal(value = TemporalType.DATE)
     private Date dateOfBirth;
-
-    @Lob
+    
+    @Column(columnDefinition = "LONGBLOB")
     private byte[] photo;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

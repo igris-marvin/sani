@@ -2,6 +2,7 @@ package com.enterprise.sani.persistence.entity;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,7 +25,8 @@ public class Category {
     private Long categoryId;
     private String categoryName;
 
-    @Lob
+    
+    @Column(columnDefinition = "LONGBLOB")
     private byte[] displayImage;
 
     @Temporal(value = TemporalType.TIMESTAMP)
