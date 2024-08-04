@@ -92,6 +92,11 @@
 
 /* ABOUT US */
 
+.about-round-image {
+    width: 150px;
+    height: 150px;
+}
+
 /* CONTACT US */
 .contact-section {
     background-color: #f8f9fa;
