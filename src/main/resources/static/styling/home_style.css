@@ -89,3 +89,44 @@
     width: 300px;
     height: 300px;
 }
+
+/* ABOUT US */
+
+/* CONTACT US */
+.contact-section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+.contact-header {
+    background: url('https://via.placeholder.com/1200x400') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    padding: 60px 0;
+    position: relative;
+}
+.contact-header h1, .contact-header p {
+    color: #fff;
+}
+.contact-section h2 {
+    color: #343a40;
+}
+.contact-section .form-control, .contact-section .btn {
+    border-radius: 0;
+}
+.contact-section .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.contact-section .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+.contact-info {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+    margin-top: -150px; /* Adjust this value as needed */
+}

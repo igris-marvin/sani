@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Enterprise Demo</title>
+        <link rel="shortcut icon" type="image/*" th:href="@{/logo/sanilogo.png}"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link th:href="@{/styling/home_style.css}" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link th:href="@{/styling/home_style.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div th:insert="~{fragment/navigation :: navigation_bar}"></div>
+
+        <section class="py-5">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col text-center">
+                        <h1 class="display-4">About Us</h1>
+                        <p class="lead text-muted">Discover our journey and meet the team behind our premium furniture.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Our Story</h2>
+                        <p>Founded in 2010, we started with a simple mission: to bring high-quality, stylish furniture to homes across the globe. Over the years, we've grown from a small local business to a leading online retailer, known for our commitment to craftsmanship and customer satisfaction.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h2>Our Mission</h2>
+                        <p>We aim to transform living spaces with our unique and elegant furniture pieces. Our mission is to provide our customers with furniture that combines functionality, comfort, and style, making every home a beautiful and inviting place.</p>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col text-center">
+                        <h2>Meet the Team</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <img th:src="@{/logo/sanilogo.png}" class="rounded-circle about-round-image" alt="Team Member">
+                        <h4>Sani</h4>
+                        <p class="text-muted">Founder & CEO</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/271156749_108984258328013_3978301721678293603_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=4ZVYgZE1I7cQ7kNvgH3uktX&_nc_ht=scontent-jnb2-1.xx&oh=00_AYAUEmffuni6dOqxIK3XwK4PiPdRYz-cMvKpKtAUxMu-iQ&oe=66B4FA90" class="rounded-circle about-round-image" alt="Team Member">
+                        <h4>Igris</h4>
+                        <p class="text-muted">Developer</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="https://via.placeholder.com/150" class="rounded-circle about-round-image" alt="Team Member">
+                        <h4>Mike Johnson</h4>
+                        <p class="text-muted">Designer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div th:insert="~{fragment/footer :: footer}"></div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </body>
+</html>

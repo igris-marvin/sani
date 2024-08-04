@@ -8,25 +8,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.enterprise.sani.api.dto.CategoryDTO;
-import com.enterprise.sani.api.dto.HomeFurnitureDTO;
 import com.enterprise.sani.api.dto.SocialContactDTO;
-import com.enterprise.sani.api.service.HomeService;
 import com.enterprise.sani.api.service.SessionService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/contact")
 @SessionAttributes("socials")
-public class HomeController {
+public class ContactUsController {
 
     @Autowired
     private SessionService sesServ;
-
-    @Autowired
-    private HomeService homeServ;
 
     @ModelAttribute("socials")
     public List<SocialContactDTO> sGetSocialContacts(
@@ -35,17 +28,10 @@ public class HomeController {
 
         return socials;
     }
-    
     @GetMapping
-    public String getHome(
+    public String getContactUs(
         Model model
     ) {
-        List<HomeFurnitureDTO> specials = homeServ.getSpecials();
-        List<CategoryDTO> categs = homeServ.getCategories();
-
-        model.addAttribute("specials", specials);
-        model.addAttribute("categs", categs);
-
-        return "index";
+        return "contact_us";
     }
 }
