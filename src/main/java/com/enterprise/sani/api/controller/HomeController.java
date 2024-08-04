@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.enterprise.sani.api.dto.CategoryDTO;
 import com.enterprise.sani.api.dto.HomeFurnitureDTO;
 import com.enterprise.sani.api.dto.SocialContactDTO;
 import com.enterprise.sani.api.service.HomeService;
@@ -40,8 +41,14 @@ public class HomeController {
         Model model
     ) {
         List<HomeFurnitureDTO> specials = homeServ.getSpecials();
+        List<CategoryDTO> categs = homeServ.getCategories();
 
         model.addAttribute("specials", specials);
+        model.addAttribute("categs", categs);
+
+        for (CategoryDTO x : categs) {
+            System.out.println(x.getName());
+        }
 
         return "index";
     }

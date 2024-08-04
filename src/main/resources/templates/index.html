@@ -16,7 +16,7 @@
         <div class="overlay-text">
               <h1>Welcome to Sani-Enterprise</h1>
               <p>Comfort Meets Style</p>
-              <a href="#" class="btn btn-shopnow">Shop Now</a>
+              <a th:href="@{/shop}" class="btn btn-shopnow">Shop Now</a>
         </div>
     </div>
 
@@ -27,20 +27,27 @@
             <h2 class="mb-4">On Special</h2>
             <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <div class="testimonial">
-                    <p class="mb-4"><img class="img-fluid slide-images" src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="_on special" /></p>
-                    <h5 class="mb-0">John Doe</h5>
-                    <small class="text-muted">CEO, Company</small>
+                
+                <div th:each="sp, stat : ${specials}">
+
+                  <div class="carousel-item active" th:if="${stat.first}">
+                    <div class="testimonial">
+                      <p class="mb-4"><img class="img-fluid slide-images" th:src="${sp.photo}" alt="_on special" /></p>
+                      <h5 th:text="${sp.furnitureName}" class="mb-0">FURNITURE_NAME</h5>
+                      <small th:text="${sp.discount} + ' - ' + ${sp.price}" class="text-muted">SPECIAL_OFFER</small>
+                    </div>
                   </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="testimonial">
-                    <p class="mb-4">"The responsive design features are fantastic. Highly recommend!"</p>
-                    <h5 class="mb-0">Jane Smith</h5>
-                    <small class="text-muted">CTO, Another Company</small>
+                  <div class="carousel-item" th:if="${not stat.first}">
+                    <div class="testimonial">
+                      <p class="mb-4"><img class="img-fluid slide-images" th:src="${sp.photo}" alt="_on special" /></p>
+                      <h5 th:text="${sp.furnitureName}" class="mb-0">FURNITURE_NAME</h5>
+                      <small th:text="${sp.discount} + ' - ' + ${sp.price}" class="text-muted">SPECIAL_OFFER</small>
+                    </div>
                   </div>
+
                 </div>
+
+                
               </div>
               <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon text-bg-dark" aria-hidden="true"></span>
@@ -57,38 +64,30 @@
     </section>
 
     <div class="container mt-5">
-      <!-- First Section -->
-      <div class="row mb-4">
-        <div class="col-md-8">
-          <h2>First Section Title</h2>
-          <p>Text for the first section. This is a description or any other content you want to place beside the image.</p>
+
+      <div th:each="cat, cStat : ${categs}">
+        <div class="row mb-4" th:if="${cStat.index % 2 == 0} " >
+          <div class="col-md-8">
+            <h2 th:text="${cat.name}">CATEGORY_TITLE</h2>
+            <p th:text="${cat.description}" >CATEGORY_DESCRIPTION</p>
+          </div>
+          <div class="col-md-4">
+            <img th:src="${cat.photo}" class="img-fluid slide-images" alt="category_image">
+          </div>
         </div>
-        <div class="col-md-4">
-          <img src="https://via.placeholder.com/150" class="img-fluid" alt="Placeholder Image">
-        </div>
-      </div>
-    
-      <!-- Second Section -->
-      <div class="row mb-4">
-        <div class="col-md-4">
-          <img src="https://via.placeholder.com/150" class="img-fluid" alt="Placeholder Image">
-        </div>
-        <div class="col-md-8">
-          <h2>Second Section Title</h2>
-          <p>Text for the second section. This is a description or any other content you want to place beside the image.</p>
-        </div>
-      </div>
-    
-      <!-- Third Section -->
-      <div class="row mb-4">
-        <div class="col-md-8">
-          <h2>Third Section Title</h2>
-          <p>Text for the third section. This is a description or any other content you want to place beside the image.</p>
-        </div>
-        <div class="col-md-4">
-          <img src="https://via.placeholder.com/150" class="img-fluid" alt="Placeholder Image">
+      
+        <!-- Second Section -->
+        <div class="row mb-4" th:if="${cStat.index % 2 != 0}">
+          <div class="col-md-4">
+            <img th:src="${cat.photo}" class="img-fluid slide-images" alt="category_image">
+          </div>
+          <div class="col-md-8">
+            <h2 th:text="${cat.name}">CATEGORY_TITLE</h2>
+            <p th:text="${cat.description}" >CATEGORY_DESCRIPTION</p>
+          </div>
         </div>
       </div>
+
     </div>
     
     

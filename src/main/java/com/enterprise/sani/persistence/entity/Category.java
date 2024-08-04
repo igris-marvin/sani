@@ -24,7 +24,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long categoryId;
     private String categoryName;
-
+    private String description;
     
     @Column(columnDefinition = "LONGBLOB")
     private byte[] displayImage;
@@ -32,12 +32,9 @@ public class Category {
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date dateAdded;
 
-    public Category(
-        String categoryName, 
-        byte[] displayImage, 
-        Date dateAdded
-    ) {
+    public Category(String categoryName, String description, byte[] displayImage, Date dateAdded) {
         this.categoryName = categoryName;
+        this.description = description;
         this.displayImage = displayImage;
         this.dateAdded = dateAdded;
     }
