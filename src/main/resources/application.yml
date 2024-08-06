@@ -29,6 +29,22 @@ spring:
     #         name: admin
     #         password: 123
 
+#SPRING JAVA MAIL SENDER CONFIGS
+    
+    mail:
+        host: smtp.gmail.com
+        port: 587
+        username: mail23VirtualVitality@gmail.com
+        password: krhuzrrohnvlgufn
+        properties:
+            mail:
+                transport:
+                protocol: smtp
+                smtp:
+                    auth: true
+                    starttls:
+                        enable: true
+                        required: true
 logging:
     level:
         org:
@@ -38,3 +54,5 @@ logging:
                     descriptor:
                         sql:
                             BasicBinder: TRACE
+
+# JAVA MAIL SENDER CONFIGS

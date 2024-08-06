@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.enterprise.sani.api.dto.MailSenderDTO;
 import com.enterprise.sani.api.dto.SocialContactDTO;
+import com.enterprise.sani.api.service.ContactUsService;
 import com.enterprise.sani.api.service.SessionService;
 
 @Controller
@@ -21,6 +23,9 @@ public class ContactUsController {
     @Autowired
     private SessionService sesServ;
 
+    @Autowired
+    private ContactUsService contServ;
+
     @ModelAttribute("socials")
     public List<SocialContactDTO> sGetSocialContacts(
     ) {
@@ -28,10 +33,15 @@ public class ContactUsController {
 
         return socials;
     }
+    
     @GetMapping
     public String getContactUs(
         Model model
     ) {
+        MailSenderDTO sender = new MailSenderDTO();
+
+        model.addAttribute("sender", sender);
+
         return "contact_us";
     }
 }
