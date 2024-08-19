@@ -1,5 +1,6 @@
 package com.enterprise.sani.persistence.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +27,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Furniture {
+public class Furniture implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -57,6 +58,22 @@ public class Furniture {
 
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date dateAdded;
+
+    public Furniture(String furnitureName, int quantity, Double price, String description, FurnitureStatus status,
+            Category category, Image displayImage, List<Image> extraImages, Discount discount, Date dateAdded) {
+        this.furnitureName = furnitureName;
+        this.quantity = quantity;
+        this.price = price;
+        this.description = description;
+        this.status = status;
+        this.category = category;
+        this.displayImage = displayImage;
+        this.extraImages = extraImages;
+        this.discount = discount;
+        this.dateAdded = dateAdded;
+    }
+
+
 
     public enum FurnitureStatus {
         AVAILABLE("Available"), 

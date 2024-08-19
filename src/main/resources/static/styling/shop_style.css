@@ -1,0 +1,18 @@
+.cover-page {
+    position: relative;
+}
+
+.categories {
+    position: absolute;
+    top: 100%;
+    /* bottom: 20%; */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    z-index: 1;
+}
+
+.carousel-inner img {
+    height: 900px;
+    object-fit: cover;
+}

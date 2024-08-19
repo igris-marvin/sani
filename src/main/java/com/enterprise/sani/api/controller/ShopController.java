@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.enterprise.sani.api.dto.CategoryDTO;
+import com.enterprise.sani.api.dto.FurnitureDTO;
 import com.enterprise.sani.api.dto.SocialContactDTO;
 import com.enterprise.sani.api.service.SessionService;
 import com.enterprise.sani.api.service.ShopService;
@@ -34,6 +35,8 @@ public class ShopController {
         return socials;
     }
     
+    //SHOP
+
     @GetMapping
     public String getShop(
         Model model
@@ -41,7 +44,36 @@ public class ShopController {
         List<CategoryDTO> categs = shopServ.getCategories();
 
         model.addAttribute("categs", categs);
+        model.addAttribute("black_bar_nav", 1);
 
-        return "shop";
+        return "shop/shop";
+    }
+
+    //SHOP / CATEGORY
+
+    @GetMapping("/category")
+    public String getCategory(
+        Model model
+    ) {
+        List<CategoryDTO> categs = shopServ.getCategories();
+
+        model.addAttribute("categs", categs);
+        model.addAttribute("black_bar_nav", 2);
+
+        return "category";
+    }
+
+    //SHOP / BROWSE
+
+    @GetMapping("/browse")
+    public String getBrowse(
+        Model model
+    ) {
+        List<FurnitureDTO> furniture = shopServ.getFurniture();
+
+        model.addAttribute("furniture", furniture);
+        model.addAttribute("black_bar_nav", 3);
+
+        return "browse";
     }
 }
