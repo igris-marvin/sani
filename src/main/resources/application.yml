@@ -34,7 +34,7 @@ spring:
         host: smtp.gmail.com
         port: 587
         username: mail23VirtualVitality@gmail.com
-        password: krhuzrrohnvlgufn
+        password: 
         properties:
             mail:
                 transport:

@@ -2,6 +2,7 @@ package com.enterprise.sani.api.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,5 +54,19 @@ public class ShopService {
         }
 
         return dtoList;
+    }
+
+    public List<Integer> getNumberOfRows() {
+
+        int count = (int) Math.ceil( (double) furRepo.count() / 4);
+
+        System.out.println("count: " + count);
+
+        List<Integer> list = IntStream
+                                .range(0, count)
+                                .boxed()
+                                .toList();
+
+        return list;
     }
 }

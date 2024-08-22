@@ -42,8 +42,12 @@ public class ShopController {
         Model model
     ) {
         List<CategoryDTO> categs = shopServ.getCategories();
+        List<FurnitureDTO> furns = shopServ.getFurniture();
+        List<Integer> row_count = shopServ.getNumberOfRows();
 
         model.addAttribute("categs", categs);
+        model.addAttribute("furns", furns);
+        model.addAttribute("row_count", row_count);
         model.addAttribute("black_bar_nav", 1);
 
         return "shop/shop";

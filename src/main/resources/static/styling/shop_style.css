@@ -1,3 +1,8 @@
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .cover-page {
     position: relative;
 }
@@ -12,7 +17,9 @@
     z-index: 1;
 }
 
+/* CAROUSEL ADJUSTMENTS */
+
 .carousel-inner img {
-    height: 900px;
+    height: 600px;
     object-fit: cover;
 }

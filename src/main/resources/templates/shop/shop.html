@@ -10,66 +10,69 @@
         <link th:href="@{/styling/home_style.css}" rel="stylesheet">
         <link th:href="@{/styling/shop_style.css}" rel="stylesheet">
     </head>
-    <body>
-       <!-- Main Content -->
-    <div class="container mt-5">
-        <!-- Hero Section -->
-        <div class="row mb-4">
-            <div class="col-md-12">
-                <div class="card">
-                    <img src="https://via.placeholder.com/1200x400" class="card-img-top" alt="Hero Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Welcome to Amazon</h5>
-                        <p class="card-text">Shop millions of products at amazing prices.</p>
+    <body th:style="'background-image: url(' + @{/photo/shop_background_image.jpg} + ');'">
+
+        <div th:insert="~{fragment/navigation :: navigation_bar}"></div>
+        <div th:insert="~{fragment/navigation :: black_bar}"></div>
+
+        <!-- Main Content -->
+        <div class="container mt-5 w-100">
+        <!-- Slideshow (Carousel) -->
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div th:each="cat, stat : ${categs}" th:if="${stat.index == 0}" class="carousel-item active">
+                        <a th:href="@{/}">    
+                            <img th:src="${cat.photo}" width="1200" height="400" class="d-block w-100" alt="Slide 1">
+                            <div class="carousel-caption d-none d-md-block">
+                            <h5 th:text="${cat.name} + ' Category'">CATEGORY_SLIDE_LABEL</h5>
+                            <p th:text="${cat.description}">DESCRIPTION</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div th:each="cat, stat : ${categs}" th:if="${stat.index != 0 AND stat.count < 4}" class="carousel-item">
+                        <a th:href="@{/}">
+                            <img th:src="${cat.photo}" width="1200" height="400" class="d-block w-100" alt="Slide 2">
+                        
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 th:text="${cat.name} + ' Category'">CATEGORY_SLIDE_LABEL</h5>
+                                <p th:text="${cat.description}">DESCRIPTION</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-        </div>
 
         <!-- Featured Products -->
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Product 1</h5>
-                        <p class="card-text">$19.99</p>
-                        <a href="#" class="btn btn-primary">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Product 2</h5>
-                        <p class="card-text">$29.99</p>
-                        <a href="#" class="btn btn-primary">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Product 3</h5>
-                        <p class="card-text">$39.99</p>
-                        <a href="#" class="btn btn-primary">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 4">
-                    <div class="card-body">
-                        <h5 class="card-title">Product 4</h5>
-                        <p class="card-text">$49.99</p>
-                        <a href="#" class="btn btn-primary">Buy Now</a>
+            <div class="container mt-4 mb-4">
+                <div th:each="row, rStat : ${row_count}" class="row">
+
+                    <div th:each="furn, fStat : ${furns}" th:if="${fStat.count} >= ${row * 4} AND ${fStat.count} <= ${row * 4 + 4}" class="col-md-3">
+
+                        <div class="card">
+                            <img th:src="${furn.displayImage}" class="card-img-top" alt="furniture_image">
+                            <div class="card-body">
+                                <h5 th:text="${furn.furnitureName}" class="card-title">FURNITURE_NAME</h5>
+                                <p th:text="${furn.price}" class="card-text">PRICE</p>
+                                <a th:href="@{/}" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
       
         <div th:insert="~{fragment/footer :: footer}"></div>
         
