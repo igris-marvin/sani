@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+:root {
+  font-family: Inter, "Segoe UI", sans-serif;
+  color: #343a35;
+  background: #f7f5ef;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  --sani-bg: #f7f5ef;
+  --sani-primary: #31584b;
+  --sani-secondary: #c98756;
+  --sani-tertiary: #d9b96c;
+  --sani-panel: #ffffff;
+  --sani-muted: #69716b;
+  --sani-accent: #c98756;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--sani-bg);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  color: #151813;
+  background: var(--sani-accent);
+}
+
+.form-control {
+  width: 100%;
+  border: 1px solid #d8d6cd;
+  border-radius: 0.65rem;
+  background: #ffffff;
+  padding: 0.7rem 0.85rem;
+  color: #343a35;
+}
+
+@supports (corner-shape: squircle) {
+  :where([class*="rounded-"]:not([class~="rounded-full"]), .form-control) {
+    corner-shape: squircle;
+  }
+
+  .rt-BaseButton,
+  .rt-Card,
+  .rt-BaseMenuContent {
+    corner-shape: squircle;
+  }
+
+  input[type="file"]::file-selector-button {
+    corner-shape: squircle;
+  }
+}
+
+.form-control:focus {
+  border-color: var(--sani-accent);
+  outline: 2px solid color-mix(in srgb, var(--sani-accent) 25%, transparent);
+}
+
+.form-control::placeholder {
+  color: #818781;
+}
+
+input[type="file"].form-control {
+  padding: 0.45rem;
+}
+
+input[type="file"]::file-selector-button {
+  margin-right: 0.75rem;
+  border: 0;
+  border-radius: 0.45rem;
+  background: #edf0eb;
+  padding: 0.45rem 0.7rem;
+  color: #31584b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
